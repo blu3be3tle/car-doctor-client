@@ -1,6 +1,12 @@
 import { createBrowserRouter } from 'react-router-dom';
 import Home from '../Pages/Home/Home';
 import MainLayout from '../Layout/MainLayout';
+import AboutUs from '../Pages/AboutUs/AboutUs';
+import Login from '../Pages/Login/Login';
+import Register from '../Pages/Login/Register';
+import Checkout from '../Pages/Checkout/Checkout';
+import Bookings from '../Pages/Bookings/Bookings';
+import PrivateRoute from './PrivateRoute';
 
 const router = createBrowserRouter([
   {
@@ -10,6 +16,32 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home></Home>,
+      },
+      {
+        path: '/about',
+        element: <AboutUs></AboutUs>,
+      },
+      {
+        path: '/login',
+        element: <Login></Login>,
+      },
+      {
+        path: '/register',
+        element: <Register></Register>,
+      },
+      {
+        path: '/checkout/:id',
+        element: <Checkout></Checkout>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/services/${params.id}`),
+      },
+      {
+        path: '/bookings',
+        element: (
+          <PrivateRoute>
+            <Bookings></Bookings>,
+          </PrivateRoute>
+        ),
       },
     ],
   },

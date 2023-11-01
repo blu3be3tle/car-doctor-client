@@ -2,8 +2,6 @@ import banner1 from '../../../src/assets/images/banner/1.jpg';
 import banner2 from '../../../src/assets/images/banner/2.jpg';
 import banner3 from '../../../src/assets/images/banner/3.jpg';
 import banner4 from '../../../src/assets/images/banner/4.jpg';
-import banner5 from '../../../src/assets/images/banner/5.jpg';
-import banner6 from '../../../src/assets/images/banner/6.jpg';
 
 const Banner = () => {
   return (
